@@ -24,6 +24,7 @@ hs_err_pid*
 
 # Data file created after execution
 data/
+build/
 
 # VSCode files
 .vscode/
