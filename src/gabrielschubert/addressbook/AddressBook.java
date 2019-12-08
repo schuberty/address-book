@@ -1,22 +1,31 @@
 package gabrielschubert.addressbook;
 
-import gabrielschubert.datastructure.OneArray;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AddressBook {
-    private OneArray address;
+    private String bookName;
+    private List<Person> address;
+    private int entriesQuantity;
 
-    public AddressBook() {
-        this.address = new OneArray();
+    public AddressBook(String bookName) {
+        this.bookName = bookName;
+        this.entriesQuantity = 0;
+        address = new ArrayList<>();
     }
 
-    public static void Start() {
-        System.out.println("Started");
+    public void addEntrie(Person person) {
+        address.add(person);
+        entriesQuantity++;
     }
 
-    public static void main(String[] args) {
-        if (args.length != 2)
-            System.out.println("At least one argument.");
-        else
-            AddressBook.Start();
+    public String getBookName() {
+        return bookName;
     }
+
+    @Override
+    public String toString() {
+        return ("BOOK \"" + bookName + "\" with " + entriesQuantity + " entrie(s)");
+    }
+
 }
