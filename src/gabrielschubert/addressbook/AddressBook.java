@@ -5,22 +5,44 @@ import java.util.List;
 
 public class AddressBook {
     private String bookName;
-    private List<Person> address;
+    private List<Person> addresses;
     private int entriesQuantity;
 
     public AddressBook(String bookName) {
         this.bookName = bookName;
         this.entriesQuantity = 0;
-        address = new ArrayList<>();
+        addresses = new ArrayList<>();
     }
 
-    public void addEntrie(Person person) {
-        address.add(person);
+    public void addEntry(Person person) {
+        addresses.add(person);
         entriesQuantity++;
+    }
+
+    public void deleteEntry(int index) {
+        addresses.remove(index);
+        entriesQuantity--;
+    }
+
+    public void deleteEntry(Person person) {
+        addresses.remove(person);
+        entriesQuantity--;
     }
 
     public String getBookName() {
         return bookName;
+    }
+
+    public List<Person> getAddresses() {
+        return addresses;
+    }
+
+    public Person getPerson(int index) {
+        return addresses.get(index);
+    }
+
+    public int getQuantity() {
+        return entriesQuantity;
     }
 
     @Override

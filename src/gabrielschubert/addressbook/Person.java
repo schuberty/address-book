@@ -20,6 +20,41 @@ public class Person {
         return ("Name....: " + firstName + " " + lastName + "\n" +
                 "Phone...: " + phoneNumber + "\n" +
                 "Address.: " + residenceAddress + "\n" +
-                "Email...: " + emailAddress + "\n");
+                "Email...: " + emailAddress);
+    }
+
+    public String getInfo() {
+        return firstName + " " + lastName +
+        ", phone is " + phoneNumber +
+        ", living at " + residenceAddress +
+        " and email is " + emailAddress;
+    }
+
+    public String getToFile() {
+        return firstName + ";" + lastName + ";" + phoneNumber + ";" + residenceAddress + ";" + emailAddress + "\n";
+    }
+
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setResidenceAddress(String residenceAddress) {
+        this.residenceAddress = residenceAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 }

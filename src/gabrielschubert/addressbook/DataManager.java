@@ -53,7 +53,7 @@ public class DataManager{
                 if(line != null) {
                     Person person = parsePerson(line);
                     if(person != null) {
-                        newBook.addEntrie(person);
+                        newBook.addEntry(person);
                     }
                 }
             } while(line != null);
@@ -70,11 +70,7 @@ public class DataManager{
         String vars[] = line.split(";");
         if(vars.length == 5) {
             person = new Person(
-                vars[0],
-                vars[1],
-                vars[2],
-                vars[3],
-                vars[4]
+                vars[0], vars[1], vars[2], vars[3], vars[4]
             );
         } else {
             return null;
@@ -113,6 +109,68 @@ public class DataManager{
         decreaseQuantity();
     }
 
+    public void listBook(int index) {
+        if(index == -1) {
+            for(AddressBook addressbook : bookFiles) {
+                System.out.println("--" + addressbook);
+                for(Person person : addressbook.getAddresses()) {
+                    System.out.println(
+                        "___________________\n" +
+                        person
+                    );
+                }
+                System.out.println();
+            }
+        } else {
+            index--;
+            System.out.println("--" + bookFiles.get(index));
+            for(Person person : bookFiles.get(index).getAddresses()) {
+                System.out.println(
+                    "___________________\n" +
+                    person
+                );
+            }
+        }
+    }
+
+    public void saveToData() throws IOException {
+        BufferedWriter writer;
+        String filePath = "";
+        for(AddressBook addressbook : bookFiles) {
+            filePath = dataPath + addressbook.getBookName() + ".txt";
+            writer = new BufferedWriter(new FileWriter(filePath));
+            writer.write(addressbook.getBookName() + "\n");
+            for(Person person : addressbook.getAddresses()) {
+                writer.write(person.getToFile());
+            }
+            writer.close();
+        }
+    }
+
+    public void searchSpecificLetter(char letter) {
+        System.out.println();   
+        int count = 0;
+        for(AddressBook addressbook : bookFiles) {
+            for(Person person : addressbook.getAddresses()) {
+                String[] compare = person.getFullName().toLowerCase().split(" ");
+                if(letter == compare[1].charAt(0)) {
+                    System.out.println(person);
+                    System.out.println("___________________");
+                    count++;
+                }
+            }
+        }
+        System.out.println("Numbers of Last Names beginning with \"" + letter + "\" is " + count);
+    }
+
+    public void sortByType() {
+        for(AddressBook addressbook : bookFiles) {
+            for(int i = 0; i < addressbook.getQuantity(); ++i) {
+                
+            }
+        }
+    }
+
     @Override
     public String toString() {
         String toString = "";
@@ -136,9 +194,7 @@ public class DataManager{
     public AddressBook getBook(int index) {
         return bookFiles.get(index);
     }
-    public List<AddressBook> getBookFiles() {
-        return bookFiles;
-    }
+
     public int getQuantity() {
         return dataQuantity;
     }
