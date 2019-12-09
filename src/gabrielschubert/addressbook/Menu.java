@@ -14,7 +14,7 @@ public class Menu {
         System.out.println("\t#~~ Address Book MANAGER ~~#\n\n" + "1.: CREATE an entry\n"
                 + "2.: REMOVE an existing entry\n" + "3.:  EDIT  an existing entry\n"
                 + "4.: SEARCH for a specific entry\n" + "5.:  LIST  an\\all address book(s)\n"
-                + "6.:  SORT  an\\all address book(s)\n" + "7.:  EXIT  to main menu\n");
+                + "6.:  EXIT  to main menu\n");
     }
 
     public static void printSearch() {

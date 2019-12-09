@@ -163,14 +163,6 @@ public class DataManager{
         System.out.println("Numbers of Last Names beginning with \"" + letter + "\" is " + count);
     }
 
-    public void sortByType() {
-        for(AddressBook addressbook : bookFiles) {
-            for(int i = 0; i < addressbook.getQuantity(); ++i) {
-                
-            }
-        }
-    }
-
     @Override
     public String toString() {
         String toString = "";

@@ -64,14 +64,11 @@ public final class Client {
                     case 5:
                         listEntries();
                         break;
-                    case 6:
-                        sortEntries();
-                        break;
                     default:
                         valid = false;
                         break;
                 }
-            } while (option != 7);
+            } while (option != 6);
         }
     }
 
@@ -276,62 +273,62 @@ public final class Client {
         Menu.waitClick();
     }
 
-    public static void sortEntries() {
-        int index = 0;
-        if(manager.getQuantity() != 1) {
-            do {
-                Menu.clearTerminal();
-                System.out.println(
-                    "\t#~~ Address Book SORT books ~~#\n\n" +
-                    manager + "0.: EXIT to manager menu\n"
-                );
-                index = Menu.getOption(true, "to sort\n");
-                if(index == 0)
-                    return;
-                index--;
-            } while(index < 0 || index >= manager.getQuantity());
-        } else {
-            Menu.clearTerminal();
-            System.out.println("#~~ Address Book SORT books ~~#\n\n");
-        }
+    // public static void sortEntries() {
+    //     int index = 0;
+    //     if(manager.getQuantity() != 1) {
+    //         do {
+    //             Menu.clearTerminal();
+    //             System.out.println(
+    //                 "\t#~~ Address Book SORT books ~~#\n\n" +
+    //                 manager + "0.: EXIT to manager menu\n"
+    //             );
+    //             index = Menu.getOption(true, "to sort\n");
+    //             if(index == 0)
+    //                 return;
+    //             index--;
+    //         } while(index < 0 || index >= manager.getQuantity());
+    //     } else {
+    //         Menu.clearTerminal();
+    //         System.out.println("#~~ Address Book SORT books ~~#\n\n");
+    //     }
 
-        if(manager.getBook(index).getQuantity() == 0) {
-            Menu.infoTimer("There's no Entries to sort");
-            return;
-        } else {
-            System.out.println();
-            do {
-                System.out.println(
-                    "1. SORT by first name\n" +
-                    "2. SORT by last name\n" +
-                    "3. SORT by residencial address\n" +
-                    "4. SORT by email address\n" +
-                    "5. EXIT to manager menu\n" 
-                );
-                index = Menu.getOption(true);
+    //     if(manager.getBook(index).getQuantity() == 0) {
+    //         Menu.infoTimer("There's no Entries to sort");
+    //         return;
+    //     } else {
+    //         System.out.println();
+    //         do {
+    //             System.out.println(
+    //                 "1. SORT by first name\n" +
+    //                 "2. SORT by last name\n" +
+    //                 "3. SORT by residencial address\n" +
+    //                 "4. SORT by email address\n" +
+    //                 "5. EXIT to manager menu\n" 
+    //             );
+    //             index = Menu.getOption(true);
 
-            } while(index < 0 || index > 5);
-        }
+    //         } while(index < 0 || index > 5);
+    //     }
 
-        switch (index) {
-            case 1:
-                manager.sortByType();
-                break;
-            case 2:
+    //     switch (index) {
+    //         case 1:
+    //             manager.sortByType();
+    //             break;
+    //         case 2:
                 
-                break;
-            case 3:
+    //             break;
+    //         case 3:
                 
-                break;
-            case 4:
+    //             break;
+    //         case 4:
                 
-                break;
-            case 5:
-                return;
-            default:
-                break;
-        }
-    }
+    //             break;
+    //         case 5:
+    //             return;
+    //         default:
+    //             break;
+    //     }
+    // }
 
     public static void createBook() {
         System.out.print("\n# Type the new Address Book name\n" + " > ");
